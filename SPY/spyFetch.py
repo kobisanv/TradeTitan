@@ -58,11 +58,11 @@ def fetch_and_save_data(interval, period, filename, retries=3):
             
             data.to_csv(filename)
             print(f"Data saved to {filename}")
-            return  # Exit function on success
+            return
         
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {e}")
-            time.sleep(5)  # Wait before retrying
+            time.sleep(5)
     
     print(f"Failed to fetch {interval} data after {retries} attempts.")
 
@@ -75,7 +75,6 @@ def fetch_news_sentiment(symbol):
         print(f"Failed to initialize News API Client: {e}")
         return
 
-    # Query multiple related terms to get broader results
     queries = [symbol, "SPDR S&P 500 ETF TRUST", "S&P 500", "S&P 500 Index"]
     news_data = []
 
@@ -87,7 +86,6 @@ def fetch_news_sentiment(symbol):
                 print(f"No news articles found for '{query}'")
                 continue
             
-            # Process each article
             for article in articles["articles"]:
                 title = article.get("title", "")
                 description = article.get("description", "")
@@ -95,12 +93,10 @@ def fetch_news_sentiment(symbol):
                 text = f"{title} {description} {content}".strip()
 
                 if not text:
-                    continue  # Skip empty articles
+                    continue
                 
-                # Get VADER sentiment
                 vaderScore = vader.polarity_scores(text)["compound"]
                 
-                # Get FinBERT sentiment
                 finbertResult = finbert(text)[0]["label"]
 
                 news_data.append({
@@ -116,9 +112,8 @@ def fetch_news_sentiment(symbol):
 
         except Exception as e:
             print(f"News API error for '{query}': {e}")
-            time.sleep(5)  # Avoid hitting API rate limits
+            time.sleep(5)
 
-    # Save results
     if news_data:
         df = pd.DataFrame(news_data)
         filename = f"{symbol}_news_sentiment.csv"
@@ -127,10 +122,8 @@ def fetch_news_sentiment(symbol):
     else:
         print("No valid articles found. Nothing saved.")
 
-# Fetch data for all timeframes
 for interval, (period, filename) in timeframes.items():
     fetch_and_save_data(interval, period, filename)
     time.sleep(10)
 
-# Fetch news sentiment
 fetch_news_sentiment("SPDR S&P 500")
