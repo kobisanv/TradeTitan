@@ -15,14 +15,14 @@ if not NEWS_API_KEY:
 vader = SentimentIntensityAnalyzer()
 finbert = pipeline("text-classification", model="ProsusAI/finbert", trust_remote_code=True)
 
-symbol = "SPY"
+symbol = "AMZN"
 ticker = yf.Ticker(symbol)
 
 timeframes = {
-    "1h": ("2y", "SPY_1h.csv"),    # 2 years of hourly data
-    "1d": ("5y", "SPY_1d.csv"),    # 5 years of daily data
-    "1wk": ("10y", "SPY_1wk.csv"), # 10 years of weekly data
-    "1mo": ("20y", "SPY_1mo.csv"), # 20 years of monthly data
+    "1h": ("2y", "AMZN_1h.csv"),    # 2 years of hourly data
+    "1d": ("5y", "AMZN_1d.csv"),    # 5 years of daily data
+    "1wk": ("10y", "AMZN_1wk.csv"), # 10 years of weekly data
+    "1mo": ("20y", "AMZN_1mo.csv"), # 20 years of monthly data
 }
 
 def fetch_and_save_data(interval, period, filename, retries=3):
@@ -73,7 +73,7 @@ def fetch_news_sentiment(symbol):
         print(f"Failed to initialize News API Client: {e}")
         return
 
-    queries = [symbol, "SPDR S&P 500 ETF TRUST", "S&P 500", "S&P 500 Index"]
+    queries = [symbol, "AMZN STOCK", "Amazon", "Amazon.com Inc"]
     news_data = []
 
     for query in queries:
@@ -123,4 +123,4 @@ for interval, (period, filename) in timeframes.items():
     fetch_and_save_data(interval, period, filename)
     time.sleep(10)
 
-fetch_news_sentiment("SPDR S&P 500")
+fetch_news_sentiment("AMZN")

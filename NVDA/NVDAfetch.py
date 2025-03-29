@@ -7,13 +7,11 @@ from newsapi import NewsApiClient
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from transformers import pipeline
 
-# Load environment variables
 load_dotenv()
 NEWS_API_KEY = os.getenv("NEWSAPI_KEY")
 if not NEWS_API_KEY:
     raise ValueError("Missing NewsAPI key. Set NEWSAPI_KEY in environment variables.")
 
-# Initialize sentiment analyzers
 vader = SentimentIntensityAnalyzer()
 finbert = pipeline("text-classification", model="ProsusAI/finbert", trust_remote_code=True)
 
@@ -96,7 +94,6 @@ def fetch_news_sentiment(symbol):
                     continue
                 
                 vaderScore = vader.polarity_scores(text)["compound"]
-                
                 finbertResult = finbert(text)[0]["label"]
 
                 news_data.append({
