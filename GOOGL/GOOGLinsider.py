@@ -10,10 +10,10 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-NVDA_CIK = "1045810"
-EDGAR_URL = f"https://data.sec.gov/submissions/CIK000{NVDA_CIK}.json"
+GOOGL_CIK = "1652044"
+EDGAR_URL = f"https://data.sec.gov/submissions/CIK000{GOOGL_CIK}.json"
 
-CSV_FILE = "nvda_insider_trades.csv"
+CSV_FILE = "googl_insider_trades.csv"
 USER_AGENT = "KobisanVinotharupan kobisan.vinotharupan@gmail.com"
 REQUEST_DELAY = 0.005
 
@@ -21,7 +21,7 @@ session = requests.Session()
 session.headers.update({"User-Agent": USER_AGENT})
 
 def fetch_form4_filings():
-    print("🔍 Fetching EDGAR JSON for NVDA...")
+    print("🔍 Fetching EDGAR JSON for AMZN...")
     resp = session.get(EDGAR_URL)
     if resp.status_code != 200:
         print(f"❌ Failed to fetch EDGAR JSON. Status code: {resp.status_code}")
@@ -38,7 +38,7 @@ def fetch_form4_filings():
             acc_num = accession_numbers[i]
             acc_no_stripped = acc_num.replace("-", "")
             doc = primary_docs[i]
-            filing_url = f"https://www.sec.gov/Archives/edgar/data/{NVDA_CIK}/{acc_no_stripped}/{doc}"
+            filing_url = f"https://www.sec.gov/Archives/edgar/data/{GOOGL_CIK}/{acc_no_stripped}/{doc}"
             form4_urls.append(filing_url)
     print(f"✅ Found {len(form4_urls)} Form 4 filings.")
     return form4_urls
@@ -208,8 +208,8 @@ def export_to_csv(transactions, filename=CSV_FILE):
 def send_email(csv_path):
     sender = "kobisan.vinotharupan@gmail.com"
     receiver = "kobisan.vinotharupan@gmail.com"
-    subject = "NVDA Insider Trades Report (FORM 4)"
-    body = "Attached is the NVDA insider trades report for ALL Form 4 filings."
+    subject = "GOOGL Insider Trades Report (FORM 4)"
+    body = "Attached is the GOOGL insider trades report for ALL Form 4 filings."
     password = os.environ.get("GMAIL_APP_PASSWORD")
     if not password:
         print("❌ GMAIL_APP_PASSWORD environment variable not set!")
@@ -239,7 +239,7 @@ def send_email(csv_path):
         print("❌ Failed to send email:", e)
 
 def main_task():
-    print("Processing all Form 4 filings for NVDA...")
+    print("Processing all Form 4 filings for GOOGL...")
     transactions = process_all_form4_filings()
     if not transactions:
         print("No transactions found to export.")

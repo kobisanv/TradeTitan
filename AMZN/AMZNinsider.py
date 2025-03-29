@@ -44,14 +44,9 @@ def fetch_form4_filings():
     return form4_urls
 
 def parse_header_info(soup):
-    """
-    Extract the insider name and relationship from 'Name and Address of Reporting Person'
-    and 'Relationship of Reporting Person(s) to Issuer' sections, skipping 'Officer (give title below)'.
-    """
     insider_name = "N/A"
     relationship_parts = []
 
-    # Insider Name
     name_label = soup.find(lambda tag:
         tag.name == "span"
         and "Name and Address of Reporting Person" in tag.get_text()
@@ -63,7 +58,6 @@ def parse_header_info(soup):
             if a_tag:
                 insider_name = a_tag.get_text(strip=True)
 
-    # Relationship
     rel_label = soup.find(lambda tag:
         tag.name == "span"
         and "Relationship of Reporting Person" in tag.get_text()
