@@ -1,0 +1,5 @@
+venv/
+tradetitan_env/
+__pycache__/
+*.pyc
+*.log
