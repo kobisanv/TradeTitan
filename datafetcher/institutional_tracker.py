@@ -624,7 +624,7 @@ def main():
     
     # Test tickers (matching your existing setup)
     test_tickers = ["NVDA", "AMZN", "GOOGL", "MSFT"]
-    output_dir = "/Users/kobisanvinotharupan/TradeTitan/INSTITUTIONAL"
+    output_dir = "/app/data/INSTITUTIONAL"
     
     # Fetch and save institutional data
     tracker.fetch_and_save_institutional_data(test_tickers, output_dir)

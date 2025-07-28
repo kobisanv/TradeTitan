@@ -324,7 +324,7 @@ def main():
     
     # Test with your existing tickers
     test_tickers = ["NVDA", "AMZN", "GOOGL", "MSFT"]
-    output_dir = "/Users/kobisanvinotharupan/TradeTitan/OPTIONS"
+    output_dir = "/app/data/OPTIONS"
     
     # Fetch and save options data
     tracker.fetch_and_save_options_data(test_tickers, output_dir)

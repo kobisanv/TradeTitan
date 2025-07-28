@@ -176,7 +176,7 @@ def main():
     
     # Test with same ticker as your example
     test_ticker = "NVDA"
-    output_dir = f"/Users/kobisanvinotharupan/TradeTitan/{test_ticker}"
+    output_dir = f"/app/data/{test_ticker}"
     
     sentiment_data = fetcher.fetch_and_save_reddit_sentiment(test_ticker, output_dir)
     
