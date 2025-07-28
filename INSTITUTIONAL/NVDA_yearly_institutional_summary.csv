@@ -1,0 +1,22 @@
+year,ticker,total_filings,active_institutions,avg_filings_per_institution,most_active_institution,quarters_with_activity
+2025,NVDA,6,3,2.0,Berkshire Hathaway Inc,2
+2024,NVDA,15,4,3.75,Berkshire Hathaway Inc,4
+2023,NVDA,16,4,4.0,State Street Corp,4
+2022,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2021,NVDA,16,4,4.0,State Street Corp,4
+2020,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2019,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2018,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2017,NVDA,16,4,4.0,State Street Corp,4
+2016,NVDA,16,4,4.0,State Street Corp,4
+2015,NVDA,16,4,4.0,State Street Corp,4
+2014,NVDA,16,4,4.0,State Street Corp,4
+2013,NVDA,16,4,4.0,State Street Corp,4
+2012,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2011,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2010,NVDA,16,4,4.0,Vanguard Group Inc,4
+2009,NVDA,16,4,4.0,Berkshire Hathaway Inc,4
+2008,NVDA,14,4,3.5,Berkshire Hathaway Inc,4
+2007,NVDA,12,3,4.0,Fidelity Management & Research,4
+2006,NVDA,9,3,3.0,Berkshire Hathaway Inc,4
+2005,NVDA,8,2,4.0,Berkshire Hathaway Inc,4

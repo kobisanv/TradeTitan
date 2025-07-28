@@ -1,0 +1,2 @@
+timestamp,ticker,current_price,max_pain_strike,distance_to_max_pain,net_gamma_exposure,atm_call_iv,atm_put_iv,iv_skew,total_call_oi,total_put_oi,put_call_oi_ratio
+2025-07-25 21:36:11,MSFT,513.7100219726562,525.0,-2.197733652146793,89771.45000000001,0.3932189584960938,0.3772157005615234,-0.01600325793457036,56980,43901,0.7704497990558257

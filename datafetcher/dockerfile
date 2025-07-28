@@ -1,0 +1,57 @@
+# Use Python 3.11 slim image for optimal size
+FROM python:3.11-slim
+
+# Set metadata
+LABEL maintainer="TradeTitan"
+LABEL description="TradeTitan Data Fetcher - Trading Data Collection Service"
+LABEL version="1.0"
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    curl \
+    git \
+    cron \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Copy requirements first for better Docker layer caching
+COPY requirements.txt .
+
+# Install Python dependencies with optimizations
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy application code and requirements
+COPY . .
+
+# Create necessary directories with proper permissions
+RUN mkdir -p /app/data/{NVDA,AMZN,GOOGL,MSFT,QQQ,SPY,VOLATILITY,OPTIONS,INSTITUTIONAL,ECONOMIC} && \
+    mkdir -p /app/logs && \
+    chmod -R 755 /app/data /app/logs
+
+# Create non-root user for security
+RUN useradd -m -u 1000 trader && \
+    chown -R trader:trader /app
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+ENV ENVIRONMENT=production
+
+# Switch to non-root user
+USER trader
+
+# Health check to ensure scheduler is working
+HEALTHCHECK --interval=30m --timeout=30s --start-period=5m --retries=3 \
+    CMD python -c "import os; exit(0 if os.path.exists('/app/logs/scheduler.log') else 1)"
+
+# Expose port for potential web interface or monitoring
+EXPOSE 8000
+
+# Default command - run scheduler
+CMD ["python", "scheduler.py"]

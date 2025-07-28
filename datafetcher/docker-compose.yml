@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  datafetcher:
+    build: .
+    container_name: tradetitan-datafetcher
+    restart: unless-stopped
+    volumes:
+      # Persist data outside container - shared with future ML pipeline
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      # Load API keys directly
+      - NEWSAPI_KEY=7531b6c411ae476396b15a47fd4f64d4
+      - FRED_API_KEY=ba7a9c9cbabb77d258a8c0fa2141e27d
+      - BARCHART_API_KEY=
+      - FINNHUB_API_KEY=
+      - ENVIRONMENT=production
+    networks:
+      - tradetitan-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; exit(0 if os.path.exists('/app/logs/scheduler.log') else 1)"]
+      interval: 30m
+      timeout: 30s
+      retries: 3
+      start_period: 5m
+
+networks:
+  tradetitan-network:
+    driver: bridge

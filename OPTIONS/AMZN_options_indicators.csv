@@ -1,0 +1,2 @@
+timestamp,ticker,current_price,max_pain_strike,distance_to_max_pain,net_gamma_exposure,atm_call_iv,atm_put_iv,iv_skew,total_call_oi,total_put_oi,put_call_oi_ratio
+2025-07-25 21:36:08,AMZN,231.44000244140625,240.0,-3.6985816921432533,134641.37499999997,0.4956349265136719,0.4796682893066406,-0.015966637207031287,125258,80464,0.6423809865957736

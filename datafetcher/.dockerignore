@@ -1,0 +1,79 @@
+# Virtual environments
+venv/
+env/
+tradetitan_env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Data files (will be generated in container)
+*.csv
+*.log
+data/
+logs/
+
+# Git and version control
+.git/
+.gitignore
+.gitattributes
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Documentation and README files
+*.md
+docs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Docker files (avoid recursion)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Environment files (will be passed as env vars)
+.env
+.env.local
+.env.production
+
+# Jupyter notebooks (unless specifically needed)
+*.ipynb
+.ipynb_checkpoints/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+.Trashes
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ML model files (can be large)
+*.pkl
+*.joblib
+*.h5
+*.pb
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3

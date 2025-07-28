@@ -1,0 +1,13 @@
+# TradeTitan Python 3.11 Virtual Environment
+# Activate with: source venv/bin/activate
+# Deactivate with: deactivate
+
+export TRADETITAN_PYTHON="/Users/kobisanvinotharupan/TradeTitan/NVDA/venv/bin/python"
+alias tt-python="$(pwd)/venv/bin/python"
+alias tt-pip="$(pwd)/venv/bin/pip"
+
+echo '🐍 TradeTitan Python 3.11 environment available:'
+echo '  - Use: source venv/bin/activate'
+echo '  - Python: $(pwd)/venv/bin/python'
+echo '  - Version: $(source venv/bin/activate && python --version)'
+

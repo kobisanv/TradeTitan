@@ -1,0 +1,2 @@
+timestamp,ticker,current_price,max_pain_strike,distance_to_max_pain,net_gamma_exposure,atm_call_iv,atm_put_iv,iv_skew,total_call_oi,total_put_oi,put_call_oi_ratio
+2025-07-25 21:36:09,GOOGL,193.17999267578125,200.0,-3.5303900935874535,114770.625,0.2778392529296875,0.25601329931640626,-0.021825953613281213,127054,80112,0.6305300853960883

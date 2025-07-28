@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  datafetcher-dev:
+    build: .
+    container_name: tradetitan-datafetcher-dev
+    restart: "no"
+    volumes:
+      # Mount source code for live development
+      - ./:/app
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - NEWSAPI_KEY=${NEWSAPI_KEY}
+      - FRED_API_KEY=${FRED_API_KEY}
+      - ENVIRONMENT=development
+      - PYTHONPATH=/app
+    networks:
+      - tradetitan-datafetcher-network
+    ports:
+      - "8000:8000"
+    command: ["python", "-u", "scheduler.py"]
+
+networks:
+  tradetitan-datafetcher-network:
+    driver: bridge

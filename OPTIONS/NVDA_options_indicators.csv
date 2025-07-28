@@ -1,0 +1,2 @@
+timestamp,ticker,current_price,max_pain_strike,distance_to_max_pain,net_gamma_exposure,atm_call_iv,atm_put_iv,iv_skew,total_call_oi,total_put_oi,put_call_oi_ratio
+2025-07-25 21:36:06,NVDA,173.5,180.0,-3.7463976945244957,256610.67500000005,0.31660839648437494,0.29907927490234376,-0.017529121582031182,385252.0,282981.0,0.7345328913726824
