@@ -24,7 +24,7 @@ def test_scheduler_logic():
         print("Weekly scripts: Skipped (not Friday 8 PM)")
     
     # Test the file paths
-    base_path = "/Users/kobisanvinotharupan/TradeTitan"
+    base_path = "/Users/kobisanvinotharupan/TradeTitan/datafetcher"
     
     weekly_scripts = [
         (f"{base_path}/vix_fetcher.py", "VIX & Volatility Data"),

@@ -6,7 +6,7 @@
 echo "Setting up TradeTitan cron jobs..."
 
 # Get the current directory
-SCRIPT_DIR="/Users/kobisanvinotharupan/TradeTitan"
+SCRIPT_DIR="/Users/kobisanvinotharupan/TradeTitan/datafetcher"
 PYTHON_PATH=$(which python3)
 
 # Create cron job entries
