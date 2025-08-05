@@ -287,7 +287,7 @@ def main():
     tracker = SimplifiedInstitutionalTracker()
     
     test_tickers = ["NVDA"]  # Start with just NVDA for testing
-    output_dir = "/app/data/INSTITUTIONAL"
+    output_dir = "./data/INSTITUTIONAL"
     
     # Create comprehensive dataset
     tracker.create_comprehensive_institutional_dataset(test_tickers, output_dir)

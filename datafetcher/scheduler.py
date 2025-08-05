@@ -9,7 +9,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('/app/logs/scheduler.log'),
+        logging.FileHandler('./logs/scheduler.log'),
         logging.StreamHandler()
     ]
 )
@@ -20,11 +20,13 @@ def run_fetch_script(script_path, stock_name):
         logging.info(f"Starting {stock_name} fetch...")
         
         script_dir = os.path.dirname(script_path)
+        script_name = os.path.basename(script_path)
         original_cwd = os.getcwd()
         
+        # Change to script directory and run just the script name
         os.chdir(script_dir)
         
-        result = subprocess.run([sys.executable, script_path], 
+        result = subprocess.run([sys.executable, script_name], 
                               capture_output=True, text=True, timeout=600)
         
         os.chdir(original_cwd)
@@ -48,7 +50,7 @@ def run_daily_scripts():
     """Run daily stock data fetch scripts."""
     logging.info("=== TradeTitan Daily Data Fetch Started ===")
     
-    base_path = "/app"
+    base_path = "."
     
     daily_scripts = [
         (f"{base_path}/NVDA/NVDAfetch.py", "NVDA Data"),
@@ -83,7 +85,7 @@ def run_weekly_scripts():
     """Run weekly data fetch scripts (Fridays at 8 PM)."""
     logging.info("=== TradeTitan Weekly Data Fetch Started ===")
     
-    base_path = "/app"
+    base_path = "."
     
     weekly_scripts = [
         (f"{base_path}/vix_fetcher.py", "VIX & Volatility Data"),
@@ -106,14 +108,19 @@ def run_weekly_scripts():
     return successful_runs, total_runs
 
 def main():
-    """Main scheduler function - determines what to run based on day of week."""
+    """Main scheduler function - determines what to run based on arguments or time."""
+    import sys
+    
+    # If 'weekly' argument provided, force weekly run
+    force_weekly = len(sys.argv) > 1 and sys.argv[1] == 'weekly'
+    
     current_time = datetime.now()
     day_of_week = current_time.weekday()  # 0=Monday, 4=Friday, 6=Sunday
     hour = current_time.hour
     
-    # Check if it's Friday (4) at 8 PM (20:00) for weekly scripts
-    if day_of_week == 4 and hour == 20:
-        logging.info("Friday 8 PM - Running weekly data fetch scripts")
+    # Run weekly scripts if forced or if it's Friday at 8 PM
+    if force_weekly or (day_of_week == 4 and hour == 20):
+        logging.info("Running weekly data fetch scripts (daily + weekly)")
         daily_success, daily_total = run_daily_scripts()
         weekly_success, weekly_total = run_weekly_scripts()
         

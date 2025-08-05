@@ -1,0 +1,244 @@
+{
+  "timestamp": "2025-08-04T22:52:19.869107",
+  "duration_seconds": 2.722723,
+  "total_tests": 39,
+  "passed_tests": 39,
+  "failed_tests": 0,
+  "success_rate": 100.0,
+  "test_details": [
+    {
+      "test": "Python Version",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Required Packages",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "API Key - NEWSAPI_KEY",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "API Key - FRED_API_KEY",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "API Key - REDDIT_CLIENT_ID",
+      "passed": true,
+      "message": "Optional - not configured",
+      "duration": 0
+    },
+    {
+      "test": "API Key - REDDIT_CLIENT_SECRET",
+      "passed": true,
+      "message": "Optional - not configured",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/NVDA",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/AMZN",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/GOOGL",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/MSFT",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/QQQ",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/SPY",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/VOLATILITY",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/OPTIONS",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/INSTITUTIONAL",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - data/ECONOMIC",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Directory - logs",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Fetcher - NVDA Stock Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Fetcher - AMZN Stock Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Fetcher - GOOGL Stock Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Fetcher - MSFT Stock Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Fetcher - QQQ ETF Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Fetcher - SPY ETF Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Specialized - VIX Volatility Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Specialized - Economic Indicators Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Specialized - Options Flow Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Specialized - Institutional Tracker",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Specialized - Reddit Sentiment Fetcher",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Scheduler",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Docker - Dockerfile",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Docker - Docker Compose",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Docker - Entrypoint Script",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Docker - Environment Variables",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Docker - Requirements",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Permissions - data",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Permissions - logs",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Yahoo Finance API",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "NewsAPI",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    },
+    {
+      "test": "Quick Data Fetch",
+      "passed": true,
+      "message": "",
+      "duration": 0
+    }
+  ]
+}

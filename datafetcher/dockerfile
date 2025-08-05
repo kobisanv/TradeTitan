@@ -29,22 +29,18 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code and requirements
 COPY . .
 
+# Make entrypoint script executable
+RUN chmod +x /app/entrypoint.sh
+
 # Create necessary directories with proper permissions
 RUN mkdir -p /app/data/{NVDA,AMZN,GOOGL,MSFT,QQQ,SPY,VOLATILITY,OPTIONS,INSTITUTIONAL,ECONOMIC} && \
     mkdir -p /app/logs && \
     chmod -R 755 /app/data /app/logs
 
-# Create non-root user for security
-RUN useradd -m -u 1000 trader && \
-    chown -R trader:trader /app
-
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 ENV ENVIRONMENT=production
-
-# Switch to non-root user
-USER trader
 
 # Health check to ensure scheduler is working
 HEALTHCHECK --interval=30m --timeout=30s --start-period=5m --retries=3 \
@@ -53,5 +49,6 @@ HEALTHCHECK --interval=30m --timeout=30s --start-period=5m --retries=3 \
 # Expose port for potential web interface or monitoring
 EXPOSE 8000
 
-# Default command - run scheduler
-CMD ["python", "scheduler.py"]
+# Default command - run entrypoint script in scheduled mode
+ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["scheduled"]

@@ -186,7 +186,7 @@ def main():
     fetcher = VIXFetcher()
     
     # Create volatility data directory
-    output_dir = "/app/data/VOLATILITY"
+    output_dir = "./data/VOLATILITY"
     
     # Fetch and save all volatility data
     fetcher.fetch_and_save_volatility_data(output_dir, period="20y")

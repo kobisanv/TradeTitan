@@ -15,7 +15,7 @@ EDGAR_URL = f"https://data.sec.gov/submissions/CIK000{MSFT_CIK}.json"
 
 CSV_FILE = "msft_insider_trades.csv"
 USER_AGENT = "KobisanVinotharupan kobisan.vinotharupan@gmail.com"
-REQUEST_DELAY = 0.005
+REQUEST_DELAY = 0.2
 
 session = requests.Session()
 session.headers.update({"User-Agent": USER_AGENT})

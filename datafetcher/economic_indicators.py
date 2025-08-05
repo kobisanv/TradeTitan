@@ -325,7 +325,7 @@ def main():
     fetcher = EconomicIndicatorsFetcher()
     
     # Create economic data directory
-    output_dir = "/app/data/ECONOMIC"
+    output_dir = "./data/ECONOMIC"
     
     # Fetch and save economic data
     fetcher.fetch_and_save_economic_data(output_dir)
